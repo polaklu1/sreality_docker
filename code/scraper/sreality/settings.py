@@ -20,7 +20,6 @@ ITEM_PIPELINES = {
     "scraper.sreality.pipelines.SrealityPipeline": 300,
 }
 
-# DATABASE = "postgresql://postgres:87654312@postgres:5432/srealitydb"
 DATABASE = os.getenv('DATABASE_URL')
 LOG_LEVEL = "INFO"
 

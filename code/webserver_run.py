@@ -7,11 +7,8 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, Session
 from pydantic import BaseModel
 
-## RUN uvicorn main:app --host 127.0.0.1 --port 8080 --reload
 
 # SQLAlchemy setup
-
-# DATABASE_URL = "postgresql://postgres:87654312@db:5432/postgres"
 DATABASE_URL = os.getenv('DATABASE_URL')
 
 engine = create_engine(DATABASE_URL)
@@ -63,5 +60,4 @@ async def read_items(request: Request, db: Session = Depends(get_db)):
 
 
 if __name__ == '__main__':
-    # uvicorn.run(app, port=8080, host="127.0.0.1")
     uvicorn.run(app, port=8080, host="0.0.0.0")
